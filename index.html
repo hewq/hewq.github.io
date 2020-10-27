@@ -1,1 +1,21 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+
+<body>
+    <script>
+        let str = 'sd123kjl4ji56lio7das8d9';
+        console.log(str.match(/\d+/g));
+        let ret = str.match(/\d+/g).reduce((sum, item) => {
+            return sum += parseInt(item, 10);
+        }, 0);
+        console.log(ret);
+    </script>
+</body>
+
+</html>
