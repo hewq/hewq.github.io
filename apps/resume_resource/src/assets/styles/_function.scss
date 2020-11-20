@@ -1,0 +1,11 @@
+@mixin wh($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin bg($url, $size: 100% auto, $position: center center, $repeat: no-repeat) {
+    background-image: url($url);
+    background-size: $size;
+    background-position: $position;
+    background-repeat: $repeat;
+}
