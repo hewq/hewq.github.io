@@ -1,23 +1,23 @@
-import Vue from 'vue'
-import VueRouter, { RouteConfig } from 'vue-router'
+import Vue from 'vue';
+import VueRouter, { RouteConfig } from 'vue-router';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
-  {
-    path: '*',
-    redirect: {
-      path: '/home'
+    {
+        path: '*',
+        redirect: {
+            path: '/home'
+        }
+    },
+    {
+        path: '/home',
+        component: () => import(/* webpackChunkName: 'home' */ '@views/Home.vue')
     }
-  },
-  {
-    path: '/home',
-    component: () => import(/* webpackChunkName: 'home' */ '@views/Home.vue')
-  }
-]
+];
 
 const router = new VueRouter({
-  routes
-})
+    routes
+});
 
-export default router
+export default router;
