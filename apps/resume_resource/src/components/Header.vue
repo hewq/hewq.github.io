@@ -1,11 +1,11 @@
 <template>
-    <div class="container" :class="{bg: showBg}">
+    <div class="container" :class="{ bg: showBg }">
         <div class="content">
             <div class="title">Thomas' Website</div>
             <div class="nav">
                 <router-link to="/home" class="nav-item">Home</router-link>
                 <router-link to="/blog" class="nav-item">Blog</router-link>
-                <router-link to="/github" class="nav-item">Github</router-link>
+                <div @click="github" class="nav-item">Github</div>
             </div>
         </div>
     </div>
@@ -16,7 +16,10 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Header extends Vue {
-  @Prop() private showBg!: boolean;
+    @Prop() private showBg!: boolean;
+    public github (): void {
+        window.location.href = 'https://github.com/hewq';
+    }
 }
 </script>
 
@@ -50,15 +53,17 @@ $height: 206px;
 
     .nav {
         padding-right: 10px;
+        display: flex;
 
         .nav-item {
             color: #fff;
             font-size: 18px;
             margin: 0 10px;
             font-weight: bold;
+            cursor: pointer;
 
             &:hover, &.router-link-exact-active {
-                color:#35a22c;
+                color:#03aaaa;
             }
 
         }

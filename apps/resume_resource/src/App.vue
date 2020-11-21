@@ -1,18 +1,22 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <Backtop>
+        <i class="el-icon-caret-top"></i>
+    </Backtop>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-export default Vue.extend({
-    methods: {
-        a (): void {
-            console.log('a');
-        }
+import { Component, Vue } from 'vue-property-decorator';
+import { Backtop } from 'element-ui';
+
+@Component({
+    components: {
+        Backtop
     }
-});
+})
+export default class App extends Vue {}
 </script>
 
 <style lang="scss">
