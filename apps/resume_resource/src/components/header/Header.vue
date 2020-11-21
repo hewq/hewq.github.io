@@ -26,7 +26,7 @@ export default class Header extends Vue {
 <style lang="scss" scoped>
 @import '@styles/_function';
 
-$height: 206px;
+$height: 400px;
 
 .container {
     position: relative;
@@ -72,8 +72,8 @@ $height: 206px;
 }
 
 .bg {
-    @include bg('~@images/banner.jpg', cover);
-    background-image:linear-gradient(to right, rgba(42, 42, 42, 0.71), rgba(38, 40, 40, 0.78)), url('~@images/banner.jpg');
+    @include bg('~@images/banner_blog.jpg', cover, center top);
+    background-image:linear-gradient(to right, rgba(42, 42, 42, 0.71), rgba(38, 40, 40, 0.78)), url('~@images/banner_blog.jpg');
 }
 
 </style>

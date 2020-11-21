@@ -1,0 +1,65 @@
+<template>
+    <div class="container">
+        <Header :showBg="true"></Header>
+        <div class="content">
+            <div class="list">
+                <Block v-for="item in curCategory" :key="item.tag" :img="item.img" :title="item.title" :tag="item.tag" :date="item.date"></Block>
+            </div>
+            <Category></Category>
+        </div>
+        <Footer></Footer>
+    </div>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import Header from '@components/header/Header.vue';
+import Category from '@components/category/Category.vue';
+import Block from '@components/block/Block.vue';
+import Footer from '@components/footer/Footer.vue';
+
+declare interface Article {
+    img: string,
+    title: string,
+    tag: string,
+    date: string
+}
+
+@Component({
+    components: {
+        Header,
+        Category,
+        Block,
+        Footer
+    }
+})
+
+export default class Blog extends Vue {
+    private list = {
+        phaser: [{
+            img: require('@images/single_blog_1.png'),
+            title: 'Google inks pact for new 35-storey office',
+            tag: 'phaser',
+            date: '2020-10-10'
+        }]
+    };
+
+    get curCategory (): Article[] {
+        return this.list.phaser;
+    }
+}
+
+</script>
+
+<style lang="scss" scoped>
+@import '@styles/_function';
+
+.container {
+    .content {
+        @include wh(1200px, auto);
+        margin: 100px auto;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+</style>

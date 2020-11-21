@@ -39,9 +39,9 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import Header from '@components/Header.vue';
-import Footer from '@components/Footer.vue';
-import Item from '@components/Item.vue';
+import Header from '@components/header/Header.vue';
+import Footer from '@components/footer/Footer.vue';
+import Item from '@components/item/Item.vue';
 
 @Component({
     components: {
