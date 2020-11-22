@@ -21,4 +21,5 @@ export default class App extends Vue {}
 
 <style lang="scss">
 @import '@styles/_global';
+@import '~@styles/_markdown';
 </style>

@@ -3,9 +3,9 @@
         <Header :showBg="true"></Header>
         <div class="content">
             <div class="list">
-                <Block v-for="item in curCategory" :key="item.tag" :img="item.img" :title="item.title" :tag="item.tag" :date="item.date"></Block>
+                <Block :curCategory="curCategory" v-for="item in curList" :key="item.title" :fileName="item.fileName" :img="item.img" :title="item.title" :tag="item.tag" :date="item.date"></Block>
             </div>
-            <Category></Category>
+            <Category @selectCategory="selectCategory"></Category>
         </div>
         <Footer></Footer>
     </div>
@@ -18,11 +18,15 @@ import Category from '@components/category/Category.vue';
 import Block from '@components/block/Block.vue';
 import Footer from '@components/footer/Footer.vue';
 
+import { hasKey } from '@utils/utils';
+import { list } from '@data/data';
+
 declare interface Article {
-    img: string,
-    title: string,
-    tag: string,
-    date: string
+    fileName: string;
+    img: string;
+    title: string;
+    tag: string;
+    date: string;
 }
 
 @Component({
@@ -35,17 +39,18 @@ declare interface Article {
 })
 
 export default class Blog extends Vue {
-    private list = {
-        phaser: [{
-            img: require('@images/single_blog_1.png'),
-            title: 'Google inks pact for new 35-storey office',
-            tag: 'phaser',
-            date: '2020-10-10'
-        }]
-    };
+    private list = list;
 
-    get curCategory (): Article[] {
-        return this.list.phaser;
+    private curCategory = 'phaser';
+
+    get curList (): Article[] | void {
+        if (hasKey(this.list, this.curCategory)) {
+            return this.list[this.curCategory];
+        }
+    }
+
+    private selectCategory (value: string): void {
+        this.curCategory = value;
     }
 }
 

@@ -22,7 +22,9 @@
       "@images/*": ["src/assets/images/*"],
       "@styles/*": ["src/assets/styles/*"],
       "@components/*": ["src/components/*"],
-      "@views/*": ["src/views/*"]
+      "@views/*": ["src/views/*"],
+      "@utils/*": ["src/utils/*"],
+      "@data/*": ["src/data/*"]
     },
     "lib": [
       "esnext",

@@ -17,6 +17,7 @@ module.exports = {
         semi: ['error', 'always'],
         indent: ['error', 4],
         'eol-last': 0,
-        '@typescript-eslint/no-var-requires': 'off'
+        '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/no-explicit-any': 'off'
     }
 };

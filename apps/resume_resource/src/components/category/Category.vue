@@ -2,7 +2,7 @@
     <div class="container">
         <div class="title">分类</div>
         <ul class="category">
-            <li v-for="item in category" :key="item.id" class="item">{{ item.name }}</li>
+            <li v-for="(item, index) in category" :key="item.id" class="item" :class="{active: curIndex === index}" @click="selectCategory(index, item.catagory)">{{ item.name }}</li>
         </ul>
     </div>
 </template>
@@ -10,20 +10,22 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
+import { category } from '@data/data';
+
 @Component
 export default class Category extends Vue {
     @Prop() private showBg!: boolean;
 
-    private category = [{
-        id: 'chrome',
-        name: 'chrome(03)'
-    }, {
-        id: 'phaser',
-        name: 'phaser(03)'
-    }];
+    private category = category;
+    private curIndex = 0;
 
     public github (): void {
         window.location.href = 'https://github.com/hewq';
+    }
+
+    private selectCategory (index: number, value: string): void {
+        this.curIndex = index;
+        this.$emit('selectCategory', value);
     }
 }
 </script>
@@ -56,6 +58,10 @@ export default class Category extends Vue {
         color: #888888;
 
         &:hover {
+            color: #2d2d2d
+        }
+
+        &.active {
             color: #2d2d2d
         }
     }
