@@ -9,6 +9,11 @@
     <title>
         <%= htmlWebpackPlugin.options.title %>
     </title>
+    <script>
+        if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+            window.location.href = 'https://hewq.github.io/apps/resume_m/index.html';
+        }
+    </script>
 </head>
 
 <body>
