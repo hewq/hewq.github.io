@@ -1,0 +1,44 @@
+@function p2r($px) {
+    @return $px/75*1rem;
+}
+
+@mixin wh($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin bg($url, $size: 100% auto, $position: center center, $repeat: no-repeat) {
+    background-image: url($url);
+    background-size: $size;
+    background-position: $position;
+    background-repeat: $repeat;
+}
+
+@mixin center() {
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); // IE9 only
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+@mixin hover-effect() {
+    color: #fff;
+    outline-offset: -1px;
+    transition: outline .5s;
+    &:hover {
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+        outline: none;
+        background: linear-gradient(90deg, white 50%, transparent 0) repeat-x, linear-gradient(90deg, white 50%, transparent 0) repeat-x, linear-gradient(0deg, white 50%, transparent 0) repeat-y, linear-gradient(0deg, white 50%, transparent 0) repeat-y;
+        background-size: 8px 1px, 8px 1px, 1px 8px, 1px 8px;
+        background-position: 0 0, 0 100%, 0 0, 100% 0;
+        animation: linearGradientMove .5s infinite linear;
+    }
+}
+
+@keyframes linearGradientMove {
+    100% {
+        background-position: 12.5% 0, -12.5% 100%, 0 -12.5%, 100% 12.5%;
+    }
+}
