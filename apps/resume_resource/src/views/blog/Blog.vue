@@ -18,8 +18,8 @@ import Category from '@components/category/Category.vue';
 import Block from '@components/block/Block.vue';
 import Footer from '@components/footer/Footer.vue';
 
-import { hasKey } from '@utils/utils';
-import { list } from '@data/data';
+import { hasKey } from '@utils/utils.ts';
+import { list } from '@data/data.ts';
 
 declare interface Article {
     fileName: string;
