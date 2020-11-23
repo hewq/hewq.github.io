@@ -1,6 +1,8 @@
 const path = require('path');
 
 module.exports = {
+    publicPath: '/resume/',
+    outputDir: '../resume',
     configureWebpack: {
         resolve: {
             alias: {
