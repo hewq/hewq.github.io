@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    publicPath: '/resume/',
+    publicPath: '/apps/resume/',
     outputDir: '../resume',
     configureWebpack: {
         resolve: {
