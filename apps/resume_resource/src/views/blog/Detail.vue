@@ -29,18 +29,11 @@ export default class Detail extends Vue {
     created (): void {
         const parser = new HyperDown();
 
-        console.log(this.$route.query);
-
         const query = this.$route.query;
 
         request.get(`/blog/${query.category}/${query.fileName}.md`).then((res) => {
-            console.log(res);
             this.content = parser.makeHtml(res.data);
         });
-    }
-
-    mounted (): void {
-        console.log(this.$route.query);
     }
 }
 </script>
