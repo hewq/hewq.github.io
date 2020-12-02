@@ -8,20 +8,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 
 import { category } from '@data/data.ts';
 
 @Component
 export default class Category extends Vue {
-    @Prop() private showBg!: boolean;
-
     private category = category;
     private curIndex = 0;
-
-    public github (): void {
-        window.location.href = 'https://github.com/hewq';
-    }
 
     private selectCategory (index: number, value: string): void {
         this.curIndex = index;
